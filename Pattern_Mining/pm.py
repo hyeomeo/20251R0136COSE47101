@@ -5,10 +5,18 @@ from mlxtend.frequent_patterns import fpgrowth, association_rules
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import networkx as nx
-import json
-
+import matplotlib as mpl
 
 df = pd.read_csv("tn_travel_여행_E.csv")
+
+font_path = 'C:/Windows/Fonts/NanumGothic.ttf'
+fm.fontManager.addfont(font_path)
+fm.fontManager = fm.FontManager()
+
+font_name = fm.FontProperties(fname=font_path).get_name()
+mpl.rcParams['font.family'] = font_name
+mpl.rcParams['font.sans-serif'] = [font_name]
+mpl.rcParams['axes.unicode_minus'] = False
 
 # Show column index
 print("Columns:", df.columns)
@@ -40,9 +48,6 @@ dataset = [ [item.strip() for item in w.split(',')] for w in words ]
 te = TransactionEncoder()
 te_ary = te.fit(dataset).transform(dataset)
 df = pd.DataFrame(te_ary, columns=te.columns_)
-
-plt.rcParams['font.family'] = 'NanumGothic'
-plt.rcParams['axes.unicode_minus'] = False
 
 frequent_itemsets = fpgrowth(df, min_support=0.008, use_colnames=True)
 # print(frequent_itemsets)
