@@ -23,7 +23,6 @@ def load_data(filepath):
         usecols=usecols,
         dtype=dtype_map,
         parse_dates=['VISIT_START_YMD'],
-        infer_datetime_format=True
     )
     return data
 
@@ -39,15 +38,15 @@ def detect_outliers_improved(data):
     filtered = data.dropna(subset=['DGSTFN', 'REVISIT_INTENTION', 'RCMDTN_INTENTION']).copy()
     filtered.loc[:, 'DGSTFN'] = filtered['DGSTFN'].astype('float32')
 
-    # IQR Method (2*IQR for stricter outlier definition)
+    # IQR Method
     Q1 = filtered['DGSTFN'].quantile(0.25)
     Q3 = filtered['DGSTFN'].quantile(0.75)
     IQR = Q3 - Q1
     statistical_outliers = (filtered['DGSTFN'] < Q1 - 2*IQR) | (filtered['DGSTFN'] > Q3 + 2*IQR)
 
-    # Isolation Forest with composite features
+    # Isolation Forest
     features = create_composite_features(filtered)
-    contamination_rate = 0.05  # Adjust as needed
+    contamination_rate = 0.05
     iso = IsolationForest(
         n_estimators=300,
         contamination=contamination_rate,
@@ -56,7 +55,7 @@ def detect_outliers_improved(data):
     )
     iso_outliers = iso.fit_predict(features) == -1
 
-    # Combine detection methods
+    # Combine methods
     combined_outliers = statistical_outliers | iso_outliers
 
     return {
@@ -64,7 +63,8 @@ def detect_outliers_improved(data):
         'isolation': iso_outliers.sum(),
         'combined': combined_outliers.sum(),
         'filtered_data': filtered,
-        'combined_mask': combined_outliers
+        'combined_mask': combined_outliers,
+        'cleaned_data': filtered[~combined_outliers]  # Added cleaned data
     }
 
 def create_transactions(data):
@@ -108,13 +108,24 @@ def visualize_outlier_detection(filtered_data, outliers_mask):
     plt.savefig('enhanced_outlier_analysis.png')
 
 if __name__ == "__main__":
-    # Load data - UPDATE PATH HERE
+    # Load data
     raw_data = load_data('tn_visit_area_info_west.csv')
 
     # Outlier detection
     outliers = detect_outliers_improved(raw_data)
 
-    # Generate standard visualizations
+    # Save original data with outliers
+    transactions_with_outliers = create_transactions(raw_data)
+    transactions_with_outliers.to_csv('transactions_with_outliers.csv', index=False)
+
+    # Save cleaned data without outliers
+    cleaned_transactions = create_transactions(outliers['cleaned_data'])
+    cleaned_transactions.to_csv('transactions_cleaned.csv', index=False)
+    
+    # Save full cleaned dataset
+    outliers['cleaned_data'].to_csv('cleaned_dataset.csv', index=False)
+
+    # Generate visualizations
     plt.figure(figsize=(15, 6))
     plt.subplot(1, 2, 1)
     sns.boxplot(x=raw_data['DGSTFN'].dropna())
@@ -124,10 +135,6 @@ if __name__ == "__main__":
     sns.histplot(raw_data['DGSTFN'].dropna(), kde=True)
     plt.title('Satisfaction Histogram')
     plt.savefig('satisfaction_distribution.png')
-
-    # Transaction data
-    transactions = create_transactions(raw_data)
-    transactions.to_csv('transactions.csv', index=False)
 
     # Enhanced visualization
     visualize_outlier_detection(outliers['filtered_data'], outliers['combined_mask'])
@@ -140,4 +147,8 @@ if __name__ == "__main__":
             'combined_outliers': int(outliers['combined'])
         }, f)
 
-    print("Analysis complete. Check output files.")
+    print("Analysis complete. Check output files:")
+    print("- transactions_with_outliers.csv (original data)")
+    print("- transactions_cleaned.csv (outliers removed)")
+    print("- cleaned_dataset.csv (full cleaned dataset)")
+    print("- *.png visualizations")
