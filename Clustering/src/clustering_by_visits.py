@@ -2,7 +2,7 @@ from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import pandas as pd
 
-region = 'F'
+region = 'H'
 
 final_df = pd.read_csv(f"data/preprocessed_data/{region}/preprocessed_visit_area_info_{region}.csv")
 X = final_df.drop(columns=['TRAVELER_ID'])

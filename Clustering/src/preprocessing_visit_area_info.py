@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-region = 'F' #지역설정
+region = 'H' #지역설정
 
 df1 = pd.read_csv(f'data/raw_data/{region}/tn_traveller_master_여행객 Master_{region}.csv')
 df2 = pd.read_csv(f'data/raw_data/{region}/tn_travel_여행_{region}.csv')
