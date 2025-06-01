@@ -10,9 +10,9 @@
 동반자정보 테이블: ['TRAVEL_ID', 'REL_CD']
 
 -세부사항
-총 여행일수를 나타내는 'TRAVEL_DAYS' 컬럼, 여행월을 나타내는 'MAIN_TRAVEL_MONTH'(두달에 걸칠 경우 더 많은 날이 포함된 월 기준) 컬럼 추가
-'VISIT_AREA_TYPE_CD'이 1, 2, 3, 4, 5, 6, 7, 8, 12, 13인 것만 포함 (집, 역, 식당 등 제외, 기타 포함)
-각 여행 별 동반자 타입을 나타내는 'RELATION_TYPE' 컬럼 추가 ('가족', '친구', '기타', '혼자' 중 1)
-각 여행객들의 평균 'DGSTFN', 평균 'REVISIT_INTENTION', 평균 'RCMDTN_INTENTION'을 구해 그 값이 하나라도 [Q1 - 1.5 * IQR, Q3 + 1.5 * IQR]를 벗어나면 아웃라이어로 보고 제거
-자세한 것은 preprocessing.py 참고 바람
+!총 여행일수를 나타내는 'TRAVEL_DAYS' 컬럼, 여행월을 나타내는 'MAIN_TRAVEL_MONTH'(두달에 걸칠 경우 더 많은 날이 포함된 월 기준) 컬럼 추가
+!'VISIT_AREA_TYPE_CD'이 1, 2, 3, 4, 5, 6, 7, 8, 12, 13인 것만 포함 (집, 역, 식당 등 제외, 기타 포함)
+!각 여행 별 동반자 타입을 나타내는 'RELATION_TYPE' 컬럼 추가 ('가족', '친구', '기타', '혼자' 중 1)
+!각 여행객들의 평균 'DGSTFN', 평균 'REVISIT_INTENTION', 평균 'RCMDTN_INTENTION'을 구해 그 값이 하나라도 [Q1 - 1.5 * IQR, Q3 + 1.5 * IQR]를 벗어나면 아웃라이어로 보고 제거
+!자세한 것은 preprocessing.py 참고 바람
 
