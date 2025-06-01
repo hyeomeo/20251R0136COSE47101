@@ -55,9 +55,10 @@ df4['RELATION_TYPE'] = df4['REL_CD'].apply(categorize_relation)
 #join연산
 df_12 = pd.merge(df1, df2, on='TRAVELER_ID', how='inner')
 df_123 = pd.merge(df_12, df3, on='TRAVEL_ID', how='inner')
-df_1234= pd.merge(df_123, df4, on='TRAVEL_ID', how='left')
+df_1234= pd.merge(df_123, df4, on='TRAVEL_ID', how='left') #동반자 여러명일 경우 중복행 발생(*)
 df_1234['RELATION_TYPE'] = df_1234['RELATION_TYPE'].fillna('혼자')
 df_1234 = df_1234.drop(columns=['REL_CD'])
+df_1234.drop_duplicates(inplace=True) #중복행 제거(*)
 
 
 
