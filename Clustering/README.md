@@ -1,6 +1,7 @@
 [0602 데이터 전처리 완료]
 
--전처리 된 csv 파일 위치: Clustering/0602/data/preprocessed_data에 권역별로 있습니다.
+-전처리 된 csv 파일 위치: Clustering/0602/data/preprocessed_data에 권역별로 있습니다.<br />
+preprocessed_with_cluster_{region}.csv는 전처리된 preprocessed_{region}.csv에 clustered_k=3_per_gender&age.csv를 기준으로 클러스터링 결과를 합친 것입니다('CLUSTER' 컬럼 추가됨. 각 성별, 연령대 별로 0.0, 1.0, 2.0 세개의 클러스터 존재).
 
 -전처리 내용: tn_traveller_master_여행객 Master_{region}.csv, tn_travel_여행_{region}.csv, tn_visit_area_info_방문지정보_{region}.csv, tn_companion_info_동반자정보_{region}.csv 테이블에서 필요한 컬럼만 남긴 뒤 조인했습니다. 구체적인 컬럼들은 아래와 같습니다.<br />
 
