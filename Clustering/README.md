@@ -16,3 +16,14 @@
 .각 여행객들의 평균 'DGSTFN', 평균 'REVISIT_INTENTION', 평균 'RCMDTN_INTENTION'을 구해 그 값이 하나라도 [Q1 - 1.5 * IQR, Q3 + 1.5 * IQR]를 벗어나면 아웃라이어로 보고 제거<br />
 .자세한 것은 preprocessing.py 참고 바람
 
+[0602 데이터 클러스터링 완료]
+
+-클러스터링 된 csv 파일 위치: Clustering/0602/data/clustered_data에 있습니다.
+
+-'GENDER', 'AGE_GRP', 'TRAVEL_STYL_1', 'TRAVEL_STYL_3', 'TRAVEL_STYL_5', 'TRAVEL_STYL_6', 'TRAVEL_STYL_7', 'TRAVEL_STYL_8'을 이용해 클러스터링했습니다.
+
+-세부사항<br />
+1. clustered_k=n_per_gender&age.csv: E,F,G,H의 여행객들 데이터를 모두 통합하여 클러스터링 진행. 각 {성별, 나이대} 별로 여행스타일에 따라 n개의 클러스터로 나눔(따라서 총 10*n개의 클러스터). PCA로 2차원에 그려본 결과 k=3일 때 가장 시각적으로 잘 분리됨(동일한 이름의 .png 파일 참고 바람) <br />
+2. clustered_k=n.csv: E,F,G,H의 여행객들 데이터를 모두 통합하여 클러스터링 진행. 성별, 나이대도 함께 변수로 포함하여 클러스터링 진행. PCA로 2차원에 그려본 결과 k=8일 때 가장 시각적으로 잘 분리되나(동일한 이름의 .png 파일 참고 바람) 성별, 나이에 따라 분리된 것으로 보임<br />
+
+-clustered_k=3_per_gender&age.csv이 가장 적절해 보임. 추후 각 클러스터별 여행 성향 분석해서 업로드 하겠습니다.
