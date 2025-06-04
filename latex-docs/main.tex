@@ -40,7 +40,7 @@
 
 
 \begin{abstract}
-This study presents a personalized tourist destination recommendation system driven by travel log data and structured through a multi-stage analytical pipeline. First, we pre-process the data by filtering irrelevant location types and integrating scattered tables. Based on demographic factors such as gender and age, users are clustered by travel styles—including companion type, destination region, trip duration, season, and purpose—using unsupervised learning. Within each cluster, frequent pattern mining reveals co-visited location pairs, forming the basis for candidate recommendations. Finally, a classification model predicts the satisfaction level of users toward each candidate destination, enabling ranked and refined suggestions based on expected user satisfaction. By aligning each analytical stage into a cohesive framework, this system aims to deliver personalized, data-driven recommendations that are both accurate and context-aware.
+This study presents a personalized tourist destination recommendation system driven by travel log data and structured through a multi-stage analytical pipeline. First, we pre-process the data by filtering irrelevant location types and integrating scattered tables. Based on demographic factors such as gender and age, users are clustered by travel styles—including nature and cities, new and familiar areas, popular and quiet destinations, respectively, preferred destinations, whether the main purpose of the trip is rest or experience activities, planned or spontaneous travel, and whether photography is important—using unsupervised learning. Within each cluster, frequent pattern mining reveals co-visited location pairs, forming the basis for candidate recommendations. Finally, a classification model predicts the satisfaction level of users toward each candidate destination, enabling ranked and refined suggestions based on expected user satisfaction. By aligning each analytical stage into a cohesive framework, this system aims to deliver personalized, data-driven recommendations that are both accurate and context-aware.
 \end{abstract}
 
 
@@ -87,7 +87,7 @@ Outliers were detected and excluded using the interquartile range (IQR) method, 
 
 \subsection{User Clustering}
 
-To group users with similar travel preferences, we applied clustering on the preprocessed dataset. Users were first grouped into subpopulations based on gender and age. Within each subgroup, clustering was performed using selected travel behavior features, such as travel style and companion type.
+To group users with similar travel preferences, we applied clustering on the preprocessed dataset. Users were first grouped into subpopulations based on gender and age. Within each subgroup, clustering was performed using selected travel behavior features, such as travel style and preferred destinations.
 
 We adopted a stratified clustering strategy, generating three distinct behavioral clusters within each gender-age subgroup. This approach resulted in a total of 30 clusters across the entire user base. The choice of three clusters per group was empirically supported through visual inspection using principal component analysis (PCA), which showed well-separated boundaries at this setting.
 
