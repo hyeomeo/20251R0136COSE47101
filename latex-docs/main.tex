@@ -1,4 +1,164 @@
-\documentclass{article}
+\documentclass[sigconf]{acmart}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{arydshln}
+\usepackage{subcaption}
+
 \begin{document}
-Hello, LaTeX!
+
+\title{Customized Tourist Destination Recommendation System}
+
+\author{WonHong Jeong}
+\affiliation{%
+    \institution{2020320089}
+    \country{Korea University}}
+\email{thetwo0525@korea.ac.kr}
+
+\author{JiWon Park}
+\affiliation{%
+    \institution{2021160043}
+    \country{Korea University}}
+\email{studypjw0104@naver.com}
+
+\author{HyeMin Woo}
+\affiliation{%
+    \institution{2021340035}
+    \country{Korea University}}
+\email{woohm3@naver.com}
+
+\author{YunJae Choi}
+\affiliation{%
+    \institution{2022320303}
+    \country{Korea University}}
+\email{jyunchoi0710@naver.com}
+
+\settopmatter{printacmref=false} 
+\acmConference[Data Science Team 19]{June 2025}{Korea University}
+
+
+
+\begin{abstract}
+This study presents a personalized tourist destination recommendation system driven by travel log data and structured through a multi-stage analytical pipeline. First, we pre-process the data by filtering irrelevant location types and integrating scattered tables. Based on demographic factors such as gender and age, users are clustered by travel styles—including companion type, destination region, trip duration, season, and purpose—using unsupervised learning. Within each cluster, frequent pattern mining reveals co-visited location pairs, forming the basis for candidate recommendations. Finally, a classification model predicts the satisfaction level of users toward each candidate destination, enabling ranked and refined suggestions based on expected user satisfaction. By aligning each analytical stage into a cohesive framework, this system aims to deliver personalized, data-driven recommendations that are both accurate and context-aware.
+\end{abstract}
+
+
+\maketitle
+
+\section{Introduction}
+
+Tourism is evolving rapidly toward personalized and data-driven experiences. Yet, most existing recommendation systems rely heavily on generic metrics such as popularity or review scores, offering the same list of destinations to all users regardless of their personal preferences or travel context. This one-size-fits-all approach fails to address the diverse needs of individual travelers.
+
+This issue is especially critical in local tourism, where effective engagement depends on accurately understanding visitor behavior. To make destination recommendations truly relevant, the system must account for who the user is, where they’ve been, and what they’ve enjoyed—information that is typically missing in conventional systems.
+
+In response, our project aims to design a personalized tourist destination and accommodation recommendation system based on real-world travel log data. The dataset, provided by AI Hub Korea, includes detailed demographic information, travel style, location visit patterns, satisfaction scores, and revisit intentions from over 12,000 travelers across Korea.
+
+The significance of this work lies in its potential to offer travelers more meaningful suggestions while simultaneously contributing to regional tourism development. By leveraging behavioral data and applying clustering, pattern mining, and satisfaction prediction techniques, our system seeks to bridge the gap between user individuality and recommendation accuracy.
+
+
+
+
+\section{Related Works}
+\subsection{Hodu}
+your content here.
+\subsection{Happiness}
+your content here.
+ \begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\linewidth]{hodu.pdf}
+  \caption{Very cute puddle}
+  \label{fig:baby puddle}
+ \end{figure}
+
+\section{Methodology}
+\subsection{Giving Snack}
+One of the best ways to cheer up \textbf{Hodu} is by giving him his favorite 
+snack. Whenever he hears the crinkle of the treat bag, his ears perk up 
+and he runs to the kitchen. \\ \textit{It’s important to give snacks 
+in moderation to maintain a healthy routine, but a little happiness goes a 
+long way.}
+Sometimes, he sits patiently and waits. Other times, he performs a quick trick — a spin or a high-five — just to make 
+sure you notice. \\ Snack time is not just about food; it's 
+about bonding.
+
+We can define Hodu’s happiness level as a function of 
+snack count $H(s) = \log(s + 1)$. \\
+To prevent overfeeding, we use a capped scoring model:
+ \begin{equation}
+  H(s) = 
+  \begin{cases}
+    \log(s + 1), & \text{if } s \leq 5 \\
+    \log(6) - \frac{1}{2}(s - 5), & \text{if } s > 5
+  \end{cases}
+ \end{equation}
+This ensures that after five snacks, Hodu’s happiness 
+increase slows down — mimicking diminishing returns.
+
+This log-based modeling approach is inspired by earlier work on attention and saturation 
+dynamics \cite{vaswani2017attention}.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{reference}
+
+\subsection{Walk the Dog}
+your content here.
+
+\section{Experiments}
+your content here.
+
+\begin{table}[t]
+    \small 
+    \centering 
+    \caption{Comparison of pretrained baselines and YOURS model trained with Hodu's full routine on happiness boost.}
+    \vspace{-0.2cm}
+ \begin{tabularx}{\columnwidth}{l >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X 
+>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+        \toprule 
+        \multirow{2}{*}{\textbf{Model}} & \multicolumn{2}{c}{\textbf{Hodu}} & \multicolumn{2}{c}{\textbf{Maru}} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5} 
+        & Reaction & Well-being & Reaction & Well-being \\
+        \midrule 
+        Baseline1 & 0.4224 & 0.5757 & 0.5621 & 0.5932  \\ 
+        Baseline2 & 0.2324 & 0.3789 & 0.2624 & 0.3996  \\ 
+        Baseline3 & 0.4321 & 0.5678 & 0.4421 & 0.5987  \\ 
+        YOURS & \textbf{0.9923} & \textbf{0.7123} & \textbf{0.9942} & \textbf{0.7271}  \\ \hdashline 
+        -w/o Snack & 0.5642 & 0.6998 & 0.5830 & 0.7192 \\
+        -w/o Walk & 0.9877 & 0.7012 & 0.9922 & 0.7188 \\
+        \bottomrule 
+    \end{tabularx}
+    \label{tab:in_domain}
+\end{table}
+
+\begin{figure*}[t!]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{hodu1.pdf}
+    \caption{Before a walk}
+    \label{fig:before}
+  \end{subfigure}
+  \hfill 
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{hodu2.pdf}
+    \caption{After a walk}
+    \label{fig:after}
+  \end{subfigure}
+  \caption{Comparison of emotional well-being}
+  \label{fig:comparison}
+\end{figure*}
+
+\section{Conclusion}
+Your content here.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{pic1.jpg}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
 \end{document}
+
