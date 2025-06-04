@@ -58,7 +58,6 @@ The significance of this work lies in its potential to offer travelers more mean
 
 
 
-
 \section{Related Works}
 \subsection{Hodu}
 your content here.
@@ -72,16 +71,66 @@ your content here.
  \end{figure}
 
 \section{Methodology}
-\subsection{Giving Snack}
-One of the best ways to cheer up \textbf{Hodu} is by giving him his favorite 
-snack. Whenever he hears the crinkle of the treat bag, his ears perk up 
-and he runs to the kitchen. \\ \textit{It’s important to give snacks 
-in moderation to maintain a healthy routine, but a little happiness goes a 
-long way.}
-Sometimes, he sits patiently and waits. Other times, he performs a quick trick — a spin or a high-five — just to make 
-sure you notice. \\ Snack time is not just about food; it's 
-about bonding.
 
+Our recommendation system is designed as a multi-stage analytical pipeline that integrates data preprocessing, user clustering, pattern mining, and satisfaction prediction.
+
+\subsection{Data Preprocessing}
+
+To prepare the dataset for clustering and recommendation, we performed extensive preprocessing on raw travel log data. Multiple source tables containing traveler information, trip records, visited locations, and companion types were merged into a unified format. Only essential columns were retained to remove noise and irrelevant details.
+
+Several derived features were added to capture trip-level characteristics, such as total travel duration and the dominant month of travel when a trip spanned multiple months. We also categorized companion types into broader groups (e.g., solo, family, friends, others) to simplify behavioral analysis.
+
+To ensure data quality, we applied strict filtering. Only records associated with location types relevant to tourism were preserved, while entries involving residential, transit, or dining facilities were excluded. Additionally, records with abnormal durations or missing satisfaction-related variables were removed.
+
+Outliers were detected and excluded using the interquartile range (IQR) method, based on users’ average satisfaction and intention scores. The cleaned and enriched dataset was finally partitioned by region and saved for downstream analysis.
+
+
+\subsection{User Clustering}
+
+To group users with similar travel preferences, we applied clustering on the preprocessed dataset. Users were first grouped into subpopulations based on gender and age. Within each subgroup, clustering was performed using selected travel behavior features, such as travel style and companion type.
+
+We adopted a stratified clustering strategy, generating three distinct behavioral clusters within each gender-age subgroup. This approach resulted in a total of 30 clusters across the entire user base. The choice of three clusters per group was empirically supported through visual inspection using principal component analysis (PCA), which showed well-separated boundaries at this setting.
+
+Each user record was annotated with a cluster label, which served as the foundation for downstream pattern mining and satisfaction prediction. This approach allowed us to tailor recommendations to the behavioral tendencies of each user segment.
+
+
+\subsection{Frequent Pattern Mining}
+
+To extract destination recommendation rules tailored to each user group, we applied the FP-Growth algorithm within each cluster. This method was chosen over Apriori due to its superior computational efficiency, especially when applying multiple support and confidence filters.
+
+Prior to pattern mining, we filtered out locations that appeared fewer than 30 times in the dataset to eliminate sparse or outlier regions. Each transaction was constructed as a 2-item set containing a cluster identifier and a visited area name, representing the co-occurrence of a cluster group and a specific destination.
+
+We set a minimum support threshold of 0.8\% and a confidence threshold of 0.35. These values were selected to ensure statistical significance while filtering out weak or infrequent association rules. The resulting rules followed the form: “Users in Cluster X often visited Destination Y with a confidence of Z\%.”
+
+Example rules include:
+\begin{itemize}
+  \item Users in Cluster\_0 who visited \textit{Everland} had a 38.6\% probability of also visiting \textit{National Museum of Korea}.
+  \item Users in Cluster\_2 who visited \textit{Gyeongbokgung Palace} had a 46.9\% probability of also visiting \textit{Caribbean Bay}.
+\end{itemize}
+
+While the initial expectation was to discover stronger patterns with high confidence values (e.g., over 60\%), most actual confidence values remained below 0.5. This indicates that although some weak tendencies exist, strongly polarized travel patterns were rare across clusters.
+
+To visualize and interpret the discovered rules effectively, we utilized NetworkX to map co-visit patterns graphically. These visualizations proved more intuitive than raw textual tables, especially for observing cluster-to-location relationships at scale.
+
+As a future direction, we plan to refine cluster segmentation or relax filter thresholds to discover more actionable association rules. Moreover, incorporating additional attributes (e.g., travel purpose or duration) may enable multidimensional rule mining with greater predictive power.
+
+
+\subsection{Satisfaction Prediction}
+
+To estimate how likely a user is to be satisfied with each recommended location, we formulate a binary classification task. A new binary label is defined where a satisfaction score (\texttt{DGSTFN}) of 4.0 or higher is considered positive (1), and lower scores are negative (0). Additional features include the name of the visited area (\texttt{VISIT\_AREA\_NM}), the month of the visit extracted from the date, and user feedback indicators such as revisit and recommendation intentions.
+
+We preprocess the categorical feature (\texttt{VISIT\_AREA\_NM}) using one-hot encoding, and build a pipeline that combines feature transformation with a logistic regression classifier. The model is trained on a stratified 70/30 train-test split, and class weights are balanced to address label imbalance.
+
+\begin{itemize}
+  \item \textbf{Model:} Logistic Regression (max\_iter = 1000, class\_weight = 'balanced')
+  \item \textbf{Features:} Visit Area, Visit Month, Revisit Intention, Recommendation Intention
+  \item \textbf{Target:} Binary satisfaction label (1 if \texttt{DGSTFN} $\geq$ 4.0)
+\end{itemize}
+
+The model is evaluated using accuracy, confusion matrix, and a full classification report including precision, recall, and F1-score. The results show the model’s ability to distinguish between likely and unlikely satisfaction, which supports the ranking and filtering of recommendations.
+
+
+!!!!!!!!Formula instruction cf!!!!!!!!!!!
 We can define Hodu’s happiness level as a function of 
 snack count $H(s) = \log(s + 1)$. \\
 To prevent overfeeding, we use a capped scoring model:
@@ -101,16 +150,13 @@ dynamics \cite{vaswani2017attention}.
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{reference}
 
-\subsection{Walk the Dog}
-your content here.
-
 \section{Experiments}
 your content here.
 
 \begin{table}[t]
     \small 
     \centering 
-    \caption{Comparison of pretrained baselines and YOURS model trained with Hodu's full routine on happiness boost.}
+    \caption{Table cf}
     \vspace{-0.2cm}
  \begin{tabularx}{\columnwidth}{l >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X 
 >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
