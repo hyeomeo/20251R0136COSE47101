@@ -21,7 +21,7 @@ mpl.rcParams['font.sans-serif'] = [font_name]
 mpl.rcParams['axes.unicode_minus'] = False
 
 area_keep = df['VISIT_AREA_NM'].value_counts()
-area_keep = area_keep[area_keep >= 100].index            # 50회 이상 지역만
+area_keep = area_keep[area_keep >= 100].index            # 100회 이상 지역만
 df_filt   = df[df['VISIT_AREA_NM'].isin(area_keep)].copy()
 dataset = df_filt.apply(
     lambda r: [r['VISIT_AREA_NM'], f"CLUSTER_{r['CLUSTER_NEW']}"],
