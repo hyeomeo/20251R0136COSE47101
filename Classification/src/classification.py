@@ -43,8 +43,8 @@ df["label"] = (df["DGSTFN"] >= 4.0).astype(int)
 
 # ---------------------- Classification(Base) ---------------------- #
 X_clf = df[[
-    "VISIT_AREA_NM", "MAIN_TRAVEL_MONTH", "REVISIT_INTENTION", "RCMDTN_INTENTION",
-    "TRAVEL_STATUS_ACCOMPANY", "RELATION_TYPE", "MVMN_NM", "GENDER", "AGE_GRP", "VISIT_AREA_TYPE_CD"
+    "VISIT_AREA_NM", "MAIN_TRAVEL_MONTH", "TRAVEL_STATUS_ACCOMPANY", 
+    "RELATION_TYPE", "MVMN_NM", "GENDER", "AGE_GRP", "VISIT_AREA_TYPE_CD"
 ]]
 y_clf = df["label"]
 
