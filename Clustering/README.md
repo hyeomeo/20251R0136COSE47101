@@ -10,85 +10,85 @@ K-Means는 구현이 간단하고 직관적인 클러스터링 기법이기 때�
 예상: 성별, 연령대에 따라 선호하는 여행 스타일이 다를 것이라고 예상, 특정 여행 스타일 문항이 모든 성별, 연령대 그룹에서 공통적으로 클러스터 구분에 중요하게 작용할 것이라고 예상함
 결과: F값, p값 분석 결과 전반적으로 대부분의 그룹에서 클러스터 간 유의미한 차이(p < 0.05) 가 나타났음. 예상과 다르게 클러스터링에 영향력이 큰 변수는 그룹마다 달랐음.
 
-=== GENDER=0, AGE_GRP=0.0 ===
-TRAVEL_STYL_7: F = 1025.07, p = 0.0000
-TRAVEL_STYL_1: F = 303.40, p = 0.0000
-TRAVEL_STYL_6: F = 235.95, p = 0.0000
-TRAVEL_STYL_3: F = 211.89, p = 0.0000
-TRAVEL_STYL_8: F = 15.77, p = 0.0000
-TRAVEL_STYL_5: F = 2.08, p = 0.1259
+=== GENDER=0, AGE_GRP=0.0 ===<br />
+TRAVEL_STYL_7: F = 1025.07, p = 0.0000<br />
+TRAVEL_STYL_1: F = 303.40, p = 0.0000<br />
+TRAVEL_STYL_6: F = 235.95, p = 0.0000<br />
+TRAVEL_STYL_3: F = 211.89, p = 0.0000<br />
+TRAVEL_STYL_8: F = 15.77, p = 0.0000<br />
+TRAVEL_STYL_5: F = 2.08, p = 0.1259<br />
 
-=== GENDER=0, AGE_GRP=0.25 ===
-TRAVEL_STYL_7: F = 1872.74, p = 0.0000
-TRAVEL_STYL_6: F = 416.15, p = 0.0000
-TRAVEL_STYL_1: F = 119.03, p = 0.0000
-TRAVEL_STYL_3: F = 50.62, p = 0.0000
-TRAVEL_STYL_5: F = 46.17, p = 0.0000
-TRAVEL_STYL_8: F = 23.44, p = 0.0000
+=== GENDER=0, AGE_GRP=0.25 ===<br />
+TRAVEL_STYL_7: F = 1872.74, p = 0.0000<br />
+TRAVEL_STYL_6: F = 416.15, p = 0.0000<br />
+TRAVEL_STYL_1: F = 119.03, p = 0.0000<br />
+TRAVEL_STYL_3: F = 50.62, p = 0.0000<br />
+TRAVEL_STYL_5: F = 46.17, p = 0.0000<br />
+TRAVEL_STYL_8: F = 23.44, p = 0.0000<br />
 
-=== GENDER=0, AGE_GRP=0.5 ===
-TRAVEL_STYL_5: F = 344.67, p = 0.0000
-TRAVEL_STYL_3: F = 197.46, p = 0.0000
-TRAVEL_STYL_1: F = 164.94, p = 0.0000
-TRAVEL_STYL_7: F = 143.51, p = 0.0000
-TRAVEL_STYL_6: F = 73.48, p = 0.0000
-TRAVEL_STYL_8: F = 67.17, p = 0.0000
+=== GENDER=0, AGE_GRP=0.5 ===<br />
+TRAVEL_STYL_5: F = 344.67, p = 0.0000<br />
+TRAVEL_STYL_3: F = 197.46, p = 0.0000<br />
+TRAVEL_STYL_1: F = 164.94, p = 0.0000<br />
+TRAVEL_STYL_7: F = 143.51, p = 0.0000<br />
+TRAVEL_STYL_6: F = 73.48, p = 0.0000<br />
+TRAVEL_STYL_8: F = 67.17, p = 0.0000<br />
 
-=== GENDER=0, AGE_GRP=0.75 ===
-TRAVEL_STYL_5: F = 271.96, p = 0.0000
-TRAVEL_STYL_3: F = 161.26, p = 0.0000
-TRAVEL_STYL_6: F = 138.09, p = 0.0000
-TRAVEL_STYL_1: F = 47.50, p = 0.0000
-TRAVEL_STYL_7: F = 31.15, p = 0.0000
-TRAVEL_STYL_8: F = 23.59, p = 0.0000
+=== GENDER=0, AGE_GRP=0.75 ===<br />
+TRAVEL_STYL_5: F = 271.96, p = 0.0000<br />
+TRAVEL_STYL_3: F = 161.26, p = 0.0000<br />
+TRAVEL_STYL_6: F = 138.09, p = 0.0000<br />
+TRAVEL_STYL_1: F = 47.50, p = 0.0000<br />
+TRAVEL_STYL_7: F = 31.15, p = 0.0000<br />
+TRAVEL_STYL_8: F = 23.59, p = 0.0000<br />
 
-=== GENDER=0, AGE_GRP=1.0 ===
-TRAVEL_STYL_5: F = 112.87, p = 0.0000
-TRAVEL_STYL_7: F = 72.06, p = 0.0000
-TRAVEL_STYL_6: F = 58.99, p = 0.0000
-TRAVEL_STYL_3: F = 21.85, p = 0.0000
-TRAVEL_STYL_1: F = 16.08, p = 0.0000
-TRAVEL_STYL_8: F = 6.99, p = 0.0012
+=== GENDER=0, AGE_GRP=1.0 ===<br />
+TRAVEL_STYL_5: F = 112.87, p = 0.0000<br />
+TRAVEL_STYL_7: F = 72.06, p = 0.0000<br />
+TRAVEL_STYL_6: F = 58.99, p = 0.0000<br />
+TRAVEL_STYL_3: F = 21.85, p = 0.0000<br />
+TRAVEL_STYL_1: F = 16.08, p = 0.0000<br />
+TRAVEL_STYL_8: F = 6.99, p = 0.0012<br />
 
-=== GENDER=1, AGE_GRP=0.0 ===
-TRAVEL_STYL_7: F = 4475.87, p = 0.0000
-TRAVEL_STYL_5: F = 639.03, p = 0.0000
-TRAVEL_STYL_8: F = 103.31, p = 0.0000
-TRAVEL_STYL_6: F = 20.12, p = 0.0000
-TRAVEL_STYL_3: F = 16.60, p = 0.0000
-TRAVEL_STYL_1: F = 12.12, p = 0.0000
+=== GENDER=1, AGE_GRP=0.0 ===<br />
+TRAVEL_STYL_7: F = 4475.87, p = 0.0000<br />
+TRAVEL_STYL_5: F = 639.03, p = 0.0000<br />
+TRAVEL_STYL_8: F = 103.31, p = 0.0000<br />
+TRAVEL_STYL_6: F = 20.12, p = 0.0000<br />
+TRAVEL_STYL_3: F = 16.60, p = 0.0000<br />
+TRAVEL_STYL_1: F = 12.12, p = 0.0000<br />
 
-=== GENDER=1, AGE_GRP=0.25 ===
-TRAVEL_STYL_7: F = 1884.27, p = 0.0000
-TRAVEL_STYL_3: F = 364.50, p = 0.0000
-TRAVEL_STYL_1: F = 319.36, p = 0.0000
-TRAVEL_STYL_6: F = 210.57, p = 0.0000
-TRAVEL_STYL_8: F = 27.14, p = 0.0000
-TRAVEL_STYL_5: F = 1.26, p = 0.2831
+=== GENDER=1, AGE_GRP=0.25 ===<br />
+TRAVEL_STYL_7: F = 1884.27, p = 0.0000<br />
+TRAVEL_STYL_3: F = 364.50, p = 0.0000<br />
+TRAVEL_STYL_1: F = 319.36, p = 0.0000<br />
+TRAVEL_STYL_6: F = 210.57, p = 0.0000<br />
+TRAVEL_STYL_8: F = 27.14, p = 0.0000<br />
+TRAVEL_STYL_5: F = 1.26, p = 0.2831<br />
 
-=== GENDER=1, AGE_GRP=0.5 ===
-TRAVEL_STYL_5: F = 598.97, p = 0.0000
-TRAVEL_STYL_3: F = 253.31, p = 0.0000
-TRAVEL_STYL_7: F = 142.60, p = 0.0000
-TRAVEL_STYL_8: F = 123.62, p = 0.0000
-TRAVEL_STYL_6: F = 99.91, p = 0.0000
-TRAVEL_STYL_1: F = 72.56, p = 0.0000
+=== GENDER=1, AGE_GRP=0.5 ===<br />
+TRAVEL_STYL_5: F = 598.97, p = 0.0000<br />
+TRAVEL_STYL_3: F = 253.31, p = 0.0000<br />
+TRAVEL_STYL_7: F = 142.60, p = 0.0000<br />
+TRAVEL_STYL_8: F = 123.62, p = 0.0000<br />
+TRAVEL_STYL_6: F = 99.91, p = 0.0000<br />
+TRAVEL_STYL_1: F = 72.56, p = 0.0000<br />
 
-=== GENDER=1, AGE_GRP=0.75 ===
-TRAVEL_STYL_8: F = 336.90, p = 0.0000
-TRAVEL_STYL_3: F = 96.77, p = 0.0000
-TRAVEL_STYL_6: F = 92.38, p = 0.0000
-TRAVEL_STYL_7: F = 83.23, p = 0.0000
-TRAVEL_STYL_1: F = 50.45, p = 0.0000
-TRAVEL_STYL_5: F = 20.73, p = 0.0000
+=== GENDER=1, AGE_GRP=0.75 ===<br />
+TRAVEL_STYL_8: F = 336.90, p = 0.0000<br />
+TRAVEL_STYL_3: F = 96.77, p = 0.0000<br />
+TRAVEL_STYL_6: F = 92.38, p = 0.0000<br />
+TRAVEL_STYL_7: F = 83.23, p = 0.0000<br />
+TRAVEL_STYL_1: F = 50.45, p = 0.0000<br />
+TRAVEL_STYL_5: F = 20.73, p = 0.0000<br />
 
-=== GENDER=1, AGE_GRP=1.0 ===
-TRAVEL_STYL_1: F = 90.84, p = 0.0000
-TRAVEL_STYL_3: F = 88.29, p = 0.0000
-TRAVEL_STYL_5: F = 68.25, p = 0.0000
-TRAVEL_STYL_7: F = 59.19, p = 0.0000
-TRAVEL_STYL_6: F = 26.80, p = 0.0000
-TRAVEL_STYL_8: F = 17.04, p = 0.0000
+=== GENDER=1, AGE_GRP=1.0 ===<br />
+TRAVEL_STYL_1: F = 90.84, p = 0.0000<br />
+TRAVEL_STYL_3: F = 88.29, p = 0.0000<br />
+TRAVEL_STYL_5: F = 68.25, p = 0.0000<br />
+TRAVEL_STYL_7: F = 59.19, p = 0.0000<br />
+TRAVEL_STYL_6: F = 26.80, p = 0.0000<br />
+TRAVEL_STYL_8: F = 17.04, p = 0.0000<br />
 
 ## 의의
 비슷한 여행 성향을 가진 사람들끼리 군집화
@@ -104,7 +104,7 @@ DBSCAN, 계층적 클러스터링 등 다른 방법으로 클러스터링 해보
 
 
 
-
+<br /><br />
 [0602 데이터 전처리 완료]
 
 -전처리 된 csv 파일 위치: Clustering/0602/data/preprocessed_data에 권역별로 있습니다.<br />
