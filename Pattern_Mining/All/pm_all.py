@@ -10,7 +10,7 @@ import matplotlib.cm as cm
 
 df = pd.read_csv("travel_data_final.csv")
 
-font_path = 'C:/Windows/Fonts/NanumGothic.ttf' # 폰트 경로 지정 필요
+font_path = 'C:/users/thetw/appdata/local/microsoft/Windows/Fonts/NanumGothic.ttf' # 폰트 경로 지정 필요
 
 fm.fontManager.addfont(font_path)
 fm.fontManager = fm.FontManager()
@@ -39,6 +39,7 @@ rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=
 rules_subset = rules[['antecedents', 'consequents', 'confidence']]
 
 print(rules[['antecedents', 'consequents', 'support', 'confidence']])
+rules[['antecedents', 'consequents', 'support', 'confidence']].to_csv("visitarea_cluster_rules.csv",index=False,encoding="utf-8-sig")   
 
 # Initialize a directed graph
 G = nx.DiGraph()
