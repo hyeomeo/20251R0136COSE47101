@@ -10,7 +10,7 @@ import matplotlib.cm as cm
 
 df = pd.read_csv("travel_data_final.csv")
 
-font_path = 'C:/users/thetw/appdata/local/microsoft/Windows/Fonts/NanumGothic.ttf' # 폰트 경로 지정 필요
+font_path = 'C:/Windows/Fonts/NanumGothic.ttf' # 폰트 경로 지정 필요
 
 fm.fontManager.addfont(font_path)
 fm.fontManager = fm.FontManager()
