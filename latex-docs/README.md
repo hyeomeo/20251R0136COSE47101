@@ -1,3 +1,19 @@
+[0613]
+
+[수정 사항]
+1. 한글 본문으로 작성
+2. 목차 수정
+3. introduction, dataset 내용 update
+4. roles and responsibilities 작성
+5. 문서 형식상 필요한 수정 작업
+
+[과제]
+1. reference 리서치, 적용 방법 구상
+2. methodology 필요시 수정
+3. experiment and evaluation 작성
+4. conclusion 작성
+######################################################################################
+
 [수정 사항]
 1. abstract 작성
 2. introduction 작성
