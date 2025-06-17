@@ -47,7 +47,7 @@ num_features = [
 ]
 
 # 클러스터 그룹 지정
-target_clusters = [2, 3, 8, 11, 14, 16, 19, 23, 25, 28]
+target_clusters = [2, 3, 8, 11, 14, 16, 19, 23, 25, 28] ## 클러스터 번호 입력
 df_cluster_group = df[df["CLUSTER_NUM"].isin(target_clusters)]
 
 # 변수 분리
