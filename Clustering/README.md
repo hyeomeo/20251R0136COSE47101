@@ -1,9 +1,9 @@
 ## 최종 모델 & 데이터
-최종 모델: Clustering/0602/src/final_K-means_(1).py
+최종 모델: Clustering/0602/src/final_K-means_(1).py<br />
 최종 데이터: Clustering/0602/data/clustered_data/clustered_k=3_per_gender&age.csv
 
 ## 구현 방식
-1차 분류: 성별, 연령대를 기준으로 그룹화
+1차 분류: 성별, 연령대를 기준으로 그룹화<br />
 2차 분류: 각 그룹 내에서 여행 스타일 설문 항목을 6개의 값을 기반으로 K-Means 클러스터링 기법을 활용하여 3개의 하위 클러스터로 분류
 
 ## 결과 평가
